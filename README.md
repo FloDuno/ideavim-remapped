@@ -1,3 +1,6 @@
+**This is a fork to manage my personnal mappings in ideavim extensions! For any official information go to [the original repo](https://github.com/JetBrains/ideavim)!**
+===
+
 <img src="src/main/resources/META-INF/pluginIcon.svg" width="80" height="80" alt="icon" align="left"/>
 
 IdeaVim
