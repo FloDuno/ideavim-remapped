@@ -69,10 +69,10 @@ plugins {
   kotlin("jvm") version "2.0.21"
   application
   id("java-test-fixtures")
-  id("org.jetbrains.intellij.platform") version "2.2.2-SNAPSHOT"
+  id("org.jetbrains.intellij.platform") version "2.3.0"
   id("org.jetbrains.changelog") version "2.2.1"
   id("org.jetbrains.kotlinx.kover") version "0.6.1"
-  id("com.dorongold.task-tree") version "4.0.0"
+  id("com.dorongold.task-tree") version "4.0.1"
   id("com.google.devtools.ksp") version "2.0.21-1.0.25"
 }
 
@@ -151,16 +151,16 @@ dependencies {
   testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:5.12.0")
-  testImplementation("org.junit.jupiter:junit-jupiter-engine:5.12.0")
-  testImplementation("org.junit.jupiter:junit-jupiter-params:5.12.0")
+  testImplementation("org.junit.jupiter:junit-jupiter-engine:5.12.1")
+  testImplementation("org.junit.jupiter:junit-jupiter-params:5.12.1")
   testFixturesImplementation("org.junit.jupiter:junit-jupiter-api:5.12.0")
-  testFixturesImplementation("org.junit.jupiter:junit-jupiter-engine:5.12.0")
-  testFixturesImplementation("org.junit.jupiter:junit-jupiter-params:5.12.0")
+  testFixturesImplementation("org.junit.jupiter:junit-jupiter-engine:5.12.1")
+  testFixturesImplementation("org.junit.jupiter:junit-jupiter-params:5.12.1")
 
   // Temp workaround suggested in https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-faq.html#junit5-test-framework-refers-to-junit4
   // Can be removed when IJPL-159134 is fixed
 //  testRuntimeOnly("junit:junit:4.13.2")
-  testImplementation("org.junit.vintage:junit-vintage-engine:5.12.0")
+  testImplementation("org.junit.vintage:junit-vintage-engine:5.12.1")
 //  testFixturesImplementation("org.junit.vintage:junit-vintage-engine:5.10.3")
 }
 

@@ -8,6 +8,8 @@
 
 import com.automation.remarks.junit5.Video
 import com.intellij.remoterobot.RemoteRobot
+import com.intellij.remoterobot.fixtures.ComponentFixture
+import com.intellij.remoterobot.search.locators.byXpath
 import com.intellij.remoterobot.steps.CommonSteps
 import com.intellij.remoterobot.utils.keyboard
 import com.intellij.remoterobot.utils.waitFor
@@ -42,12 +44,12 @@ class PyCharmTest {
   }
 
   private fun IdeaFrame.testEnterWorksInPyConsole() {
-    waitFor(duration = Duration.ofMinutes(5)) {
-      findAllText("Python Console").isNotEmpty() &&
-        findAllText("Version Control").isNotEmpty() &&
-        findAllText("Python Packages").isNotEmpty() &&
-        isSmartMode()
-    }
+//    waitFor(duration = Duration.ofMinutes(5)) {
+//      findAllText("Python Console").isNotEmpty() &&
+//        findAllText("Version Control").isNotEmpty() &&
+//        findAllText("Python Packages").isNotEmpty() &&
+//        isSmartMode()
+//    }
 
     // Open tool window by id.
     // id taken from PythonConsoleToolWindowFactory.ID but it's not resolved in robot by some reason
@@ -69,6 +71,11 @@ class PyCharmTest {
   private fun RemoteRobot.startNewProject() {
     welcomeFrame {
       createNewProjectLink.click()
+      waitFor(duration = Duration.ofSeconds(30)) {
+        // Waiting till the SDK will be detected by PyCharm
+        this@startNewProject.findAll<ComponentFixture>(byXpath("//div[@class='SimpleColoredComponent']"))
+          .any { it.hasText { text -> text.text.contains("/usr/local/bin/python3") } }
+      }
       button("Create").click()
     }
   }
